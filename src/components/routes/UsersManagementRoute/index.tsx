@@ -1,7 +1,7 @@
-import { useGetUsersQuery } from '../queries/useUsersQuery'
+import { useGetUsersQuery } from '@/src/queries/useUsersQuery'
 import UsersList from './UsersList'
 
-export default function UsersManagement() {
+export default function UsersManagementRoute() {
   useGetUsersQuery()
 
   return (

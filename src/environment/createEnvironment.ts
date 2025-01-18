@@ -1,6 +1,8 @@
 import { QueryClient } from '@tanstack/react-query'
+import { type Config, createConfiguration } from './config'
 
-export interface IEnvironment {
+export interface Environment {
+  config: Config
   queryClient: QueryClient
 }
 
@@ -8,10 +10,12 @@ export interface IEnvironment {
  * Create the environment for the app that runs in the browser.
  * For tests, see createTestEnvironment().
  */
-export function createEnvironment(): IEnvironment {
+export function createEnvironment(): Environment {
+  const config = createConfiguration()
   const queryClient = new QueryClient()
 
   return {
+    config,
     queryClient
   }
 }

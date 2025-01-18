@@ -1,5 +1,5 @@
+import { useStores } from '@/src/hooks/useStores'
 import { observer } from 'mobx-react-lite'
-import { useStores } from '../hooks/useStores'
 
 function UsersList() {
   const { storeUsersManagement } = useStores()
