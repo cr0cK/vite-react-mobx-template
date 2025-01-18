@@ -4,6 +4,16 @@ This template provides a modern setup for building scalable React applications w
 
 ---
 
+## React Query + MobX: The Best of Both Worlds
+
+This template leverages the powerful combination of React Query and MobX to handle both data fetching and state management effectively.
+
+React Query excels at managing server-side state, including fetching, caching, and syncing data with your backend, ensuring your app stays performant and up-to-date.
+
+On the other hand, MobX provides a simple yet powerful way to manage client-side state, offering reactivity and seamless integration with your React components. Together, these tools create a highly scalable architecture where React Query handles transient, server-driven data, and MobX manages persistent, client-driven state, enabling you to build robust, maintainable applications effortlessly.
+
+---
+
 ## Features
 
 - **Vite**: Fast development and build tooling.
