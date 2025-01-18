@@ -1,7 +1,7 @@
+import type { Environment } from '@/src/environment/createEnvironment'
 import { type Option, isSome, none, some } from 'fp-ts/lib/Option'
 import { StoreUsersManagement } from '../StoreUsersManagement'
 import type { Stores } from '../types'
-import type { Environment } from './Environment'
 
 /**
  * Root store instanciating all top-level stores.
