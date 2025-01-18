@@ -34,6 +34,7 @@ This template provides a modern setup for building scalable React applications w
 ## Scripts
 
 - `start:dev`: Start the development server.
+- `start:prod`: Serve the production build using http-server on http://localhost:5000.
 - `build`: Build the application for production.
 - `check:code`: Type-check the project.
 - `format:code`: Format the codebase using Biome.
