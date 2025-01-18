@@ -1,8 +1,8 @@
 {
   "name": "template-vite-mobx-reactquery",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "build": "tsc -b && vite build",
     "check:code": "tsc -p tsconfig.app.json --noEmit",
