@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -b && vite build",
-    "check:code": "tsc -p tsconfig.app.json --noEmit",
+    "check:code": "tsc --noEmit",
     "format:code": "biome format ./src --fix",
     "lint:code": "biome check --fix",
     "precommit": "npm run check:code && npm run format:code && npm run lint:code",
