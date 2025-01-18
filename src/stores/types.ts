@@ -1,8 +1,8 @@
-import type { StoreRoot } from './storeRoot'
-import type { StoreUsersManagement } from './storeUsersManagement'
+import type { StoreRoot } from './StoreRoot'
+import type { StoreUsersManagement } from './StoreUsersManagement'
 
 /**
- * Stores definition.
+ * Top-level stores, exposed by storeRoot.stores.
  */
 export type Stores = {
   storeRoot: StoreRoot

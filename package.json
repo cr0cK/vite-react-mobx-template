@@ -13,6 +13,8 @@
     "start:dev": "vite"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.64.1",
+    "@tanstack/react-query-devtools": "^5.64.1",
     "fp-ts": "^2.16.9",
     "mobx": "^6.13.5",
     "mobx-react-lite": "^4.1.0",
