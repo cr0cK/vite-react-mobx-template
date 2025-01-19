@@ -8,8 +8,8 @@ function UsersList() {
     <div>
       {storeUsersManagement.users.map(user => {
         return (
-          <li key={user.id}>
-            {user.id} - {user.name}
+          <li key={user.raw.id}>
+            {user.raw.id} - {user.fullName}
           </li>
         )
       })}

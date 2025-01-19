@@ -1,4 +1,4 @@
-import type { UserEntity } from '@/src/schemas/User'
+import type { UserEntity } from '@/src/entities/UserEntity'
 import { action, computed, makeAutoObservable, observable } from 'mobx'
 
 /**
