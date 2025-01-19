@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import { UserEntity } from '../entities/UserEntity'
 import { useStores } from '../hooks/useStores'
 import { getUsers } from '../mocks/getUsers'
 
@@ -11,6 +12,9 @@ export function useGetUsersQuery() {
   return useQuery({
     queryKey: ['getUsers'],
     queryFn: getUsers,
-    select: users => storeUsersManagement.setUsers(users)
+    select: users => {
+      const userEntities = users.map(user => new UserEntity(user))
+      storeUsersManagement.setUsers(userEntities)
+    }
   })
 }
