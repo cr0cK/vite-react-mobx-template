@@ -26,6 +26,9 @@ export function createApp() {
   // instanciate the root store (and all top-level stores)
   const storeRoot = new StoreRoot(environment)
 
+  // save storeRoot instance on window for easier debugging
+  window.STORE_ROOT = storeRoot
+
   createRoot(rootContainer).render(
     <StrictMode>
       <ContextStores.Provider value={some(storeRoot)}>
