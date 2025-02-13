@@ -11,7 +11,8 @@
     "precommit": "npm run check:code && npm run format:code && npm run lint:code",
     "preview": "vite preview",
     "start:dev": "vite",
-    "start:prod": "http-server dist -p 5000 -o"
+    "start:prod": "http-server dist -p 5000 -o",
+    "test": "jest"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.64.1",
@@ -27,13 +28,17 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@swc/jest": "^0.2.37",
     "@tanstack/router-devtools": "^1.97.3",
     "@tanstack/router-plugin": "^1.97.3",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.10.7",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
     "globals": "^15.14.0",
+    "jest": "^29.7.0",
+    "ts-node": "^10.9.2",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5"

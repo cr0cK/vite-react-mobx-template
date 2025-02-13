@@ -2,7 +2,7 @@ import type { UserEntityRaw } from '../schemas/User'
 
 // Mocked API call
 export async function getUsers(): Promise<UserEntityRaw[]> {
-  return new Promise(resolve =>
+  return new Promise(resolve => {
     setTimeout(() => {
       resolve([
         {
@@ -34,5 +34,5 @@ export async function getUsers(): Promise<UserEntityRaw[]> {
         }
       ])
     }, 1000)
-  )
+  })
 }

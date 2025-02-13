@@ -1,20 +1,36 @@
 import { useStores } from '@/src/hooks/useStores'
-import { observer } from 'mobx-react-lite'
+import { useGetUsersQuery } from '@/src/queries/useUsersQuery'
+import Loader from '../../helpers/Loader'
+import RenderEither from '../../helpers/RenderEither'
 
 function UsersList() {
+  const { isLoading } = useGetUsersQuery()
+
   const { storeUsersManagement } = useStores()
 
   return (
-    <div>
-      {storeUsersManagement.users.map(user => {
-        return (
-          <li key={user.raw.id}>
-            {user.raw.id} - {user.fullName}
-          </li>
-        )
-      })}
-    </div>
+    <Loader isLoading={isLoading}>
+      <RenderEither
+        observableEither={storeUsersManagement.$users}
+        onLeft={error => {
+          return <div>Error: {error.get().message}</div>
+        }}
+        onRight={users => {
+          return (
+            <div>
+              {users.map(user => {
+                return (
+                  <li key={user.raw.id}>
+                    {user.raw.id} - {user.fullName}
+                  </li>
+                )
+              })}
+            </div>
+          )
+        }}
+      />
+    </Loader>
   )
 }
 
-export default observer(UsersList)
+export default UsersList
