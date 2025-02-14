@@ -2,7 +2,9 @@ import type { UserEntityRaw } from '../schemas/User'
 
 // Mocked API call
 export async function getUsers(): Promise<UserEntityRaw[]> {
-  return new Promise(resolve => {
+  console.log('getUsers')
+
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve([
         {

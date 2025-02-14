@@ -36,7 +36,8 @@
       },
       "recommended": true,
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noEmptyInterface": "off"
       }
     }
   },

@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 coverage
+tsconfig.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
