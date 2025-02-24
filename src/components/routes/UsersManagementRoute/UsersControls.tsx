@@ -1,4 +1,6 @@
 import { useGetUsersQuery } from '@/src/queries/useUsersQuery'
+import { Checkbox } from '@mui/material'
+import Button from '@mui/material/Button'
 import { useIsFetching, useQueryClient } from '@tanstack/react-query'
 
 export interface IUsersControlsProps {}
@@ -33,6 +35,9 @@ export default function UsersControls(props: IUsersControlsProps) {
         >
           Remove users
         </button>
+
+        <Button variant="contained">Hello world</Button>
+        <Checkbox defaultChecked />
       </div>
     </div>
   )

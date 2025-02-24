@@ -1,4 +1,5 @@
 import ContextStores from '@/src/contextes/ContextStores'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { RouterProvider } from '@tanstack/react-router'
@@ -9,6 +10,7 @@ import { createEnvironment } from '../environment/createEnvironment'
 import { StoreRoot } from '../stores/StoreRoot'
 import RouterDevtools from './RouterDevtools'
 import { router } from './router'
+import { muiTheme } from './theme'
 
 /**
  * Create and render the app.
@@ -31,16 +33,21 @@ export function createApp() {
 
   createRoot(rootContainer).render(
     <StrictMode>
-      <ContextStores.Provider value={some(storeRoot)}>
-        <QueryClientProvider client={storeRoot.environment.queryClient}>
-          <RouterProvider router={router} />
-          <ReactQueryDevtools initialIsOpen={false} />
-          <RouterDevtools
-            production={environment.config.production}
-            appRouter={router}
-          />
-        </QueryClientProvider>
-      </ContextStores.Provider>
+      <CssBaseline enableColorScheme />
+      <ThemeProvider theme={muiTheme}>
+        <ContextStores.Provider value={some(storeRoot)}>
+          <QueryClientProvider client={storeRoot.environment.queryClient}>
+            <RouterProvider router={router} />
+
+            <ReactQueryDevtools initialIsOpen={false} />
+
+            <RouterDevtools
+              production={environment.config.production}
+              appRouter={router}
+            />
+          </QueryClientProvider>
+        </ContextStores.Provider>
+      </ThemeProvider>
     </StrictMode>
   )
 }
