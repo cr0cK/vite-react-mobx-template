@@ -11,7 +11,7 @@ interface IUser {
   name: string
 }
 
-describe('RenderEither', () => {
+describe('RenderObvEither', () => {
   it('should set left and right values', () => {
     expect.assertions(4)
 

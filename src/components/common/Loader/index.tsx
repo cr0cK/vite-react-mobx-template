@@ -8,7 +8,7 @@ export interface ILoaderProps extends React.PropsWithChildren {
  */
 export default function Loader(props: ILoaderProps) {
   if (props.isLoading) {
-    return props.spinner ?? 'Loading...'
+    return props.spinner ?? <div>Loading...</div>
   }
 
   return props.children

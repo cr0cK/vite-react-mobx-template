@@ -15,4 +15,9 @@ export class StoreUsersManagement {
   constructor() {
     makeAutoObservable(this)
   }
+
+  // @computed
+  // get userEntities(): UserEntity[] {
+  //   return ensureArray(this.$users.right).map(user => new UserEntity(user))
+  // }
 }

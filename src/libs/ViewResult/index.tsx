@@ -18,10 +18,10 @@ export class ViewResult<TData> {
    * @param data Optional data associated with the result.
    * @param err An optional error if the operation resulted in a failure.
    */
-  constructor(message?: string, data?: TData, err?: Error) {
+  constructor(message?: string, parameters?: { data?: TData; err?: Error }) {
     this._message = message ?? 'An error has occurred. Please try again.'
-    this._data = data ?? null
-    this._err = err ?? null
+    this._data = parameters?.data ?? null
+    this._err = parameters?.err ?? null
   }
 
   get message() {
