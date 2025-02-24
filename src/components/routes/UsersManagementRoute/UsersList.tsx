@@ -7,9 +7,8 @@ function UsersList() {
   console.log('UsersList')
 
   return (
-    <RenderQuery
-      {...getUsersQuery}
-      renderData={users => {
+    <RenderQuery queryResult={getUsersQuery}>
+      {users => {
         return (
           <div>
             {users.map(user => {
@@ -22,7 +21,7 @@ function UsersList() {
           </div>
         )
       }}
-    />
+    </RenderQuery>
   )
 }
 
