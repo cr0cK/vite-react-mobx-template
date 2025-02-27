@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material'
-import { green } from '@mui/material/colors'
+import { blue } from '@mui/material/colors'
 
 /**
  * Create a custom MUI theme.
@@ -7,7 +7,7 @@ import { green } from '@mui/material/colors'
 export const muiTheme = createTheme({
   palette: {
     primary: {
-      main: green[300]
+      main: blue[300]
     }
   },
   components: {

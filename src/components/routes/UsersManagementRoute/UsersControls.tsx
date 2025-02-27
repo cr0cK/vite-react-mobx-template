@@ -1,5 +1,5 @@
 import { useGetUsersQuery } from '@/src/queries/useUsersQuery'
-import { Checkbox } from '@mui/material'
+import { Box } from '@mui/material'
 import Button from '@mui/material/Button'
 import { useIsFetching, useQueryClient } from '@tanstack/react-query'
 
@@ -12,21 +12,21 @@ export default function UsersControls(props: IUsersControlsProps) {
   const isFetchingUsers = useIsFetching({ queryKey: ['getUsers'] })
 
   return (
-    <div>
+    <Box sx={{ display: 'flex', gap: theme => theme.spacing(1) }}>
       <div>
-        <button
-          type="button"
+        <Button
+          variant="contained"
           onClick={() => {
             queryResult.refetch()
           }}
         >
-          Reload users <span>{isFetchingUsers ? 'R' : ''}</span>
-        </button>
+          Reload users {isFetchingUsers ? '(R)' : ''}
+        </Button>
       </div>
 
       <div>
-        <button
-          type="button"
+        <Button
+          variant="contained"
           onClick={() => {
             queryClient.resetQueries({
               queryKey: ['getUsers']
@@ -34,11 +34,8 @@ export default function UsersControls(props: IUsersControlsProps) {
           }}
         >
           Remove users
-        </button>
-
-        <Button variant="contained">Hello world</Button>
-        <Checkbox defaultChecked />
+        </Button>
       </div>
-    </div>
+    </Box>
   )
 }
