@@ -1,4 +1,4 @@
-import { useGetUsersQuery } from '@/src/queries/useUsersQuery'
+import { useGetUsersQuery } from '@/queries/useUsersQuery'
 import { Box } from '@mui/material'
 import Button from '@mui/material/Button'
 import { useIsFetching, useQueryClient } from '@tanstack/react-query'

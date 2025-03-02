@@ -1,5 +1,5 @@
-import ContextStores from '@/src/contextes/ContextStores'
-import type { Stores } from '@/src/stores/types'
+import ContextStores from '@/contextes/ContextStores'
+import type { Stores } from '@/stores/types'
 import { isSome } from 'fp-ts/lib/Option'
 import { useContext } from 'react'
 

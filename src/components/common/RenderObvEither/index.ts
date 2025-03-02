@@ -1,4 +1,4 @@
-import type { ObservableEither } from '@/src/libs/mobx/ObservableEither'
+import type { ObservableEither } from '@/libs/mobx/ObservableEither'
 import { observer } from 'mobx-react-lite'
 
 export interface IRenderObvEitherProps<TLeft, TRight> {

@@ -1,4 +1,4 @@
-import { useGetUsersQuery } from '@/src/queries/useUsersQuery'
+import { useGetUsersQuery } from '@/queries/useUsersQuery'
 import RenderQuery from '../../common/RenderQuery'
 
 function UsersList() {

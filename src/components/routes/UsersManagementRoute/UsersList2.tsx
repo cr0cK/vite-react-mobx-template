@@ -1,4 +1,4 @@
-import { useStores } from '@/src/hooks/useStores'
+import { useStores } from '@/hooks/useStores'
 import { RenderObvEitherObserver } from '../../common/RenderObvEither'
 
 function UsersList2() {

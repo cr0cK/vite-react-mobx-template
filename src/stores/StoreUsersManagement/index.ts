@@ -1,6 +1,6 @@
-import type { UserEntity } from '@/src/entities/UserEntity'
-import { ViewResult } from '@/src/libs/ViewResult'
-import { ObservableEither } from '@/src/libs/mobx/ObservableEither'
+import type { UserEntity } from '@/entities/UserEntity'
+import { ViewResult } from '@/libs/ViewResult'
+import { ObservableEither } from '@/libs/mobx/ObservableEither'
 import { makeAutoObservable, observable } from 'mobx'
 
 /**

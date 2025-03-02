@@ -1,4 +1,4 @@
-import type { Maybe } from '@/src/libs/helpers/types'
+import type { Maybe } from '@/libs/helpers/types'
 import { useContext } from 'react'
 import ContextRenderQuery, {
   type IContextRenderQueryParameters
