@@ -1,6 +1,5 @@
 import { Outlet } from '@tanstack/react-router'
 import ContextRenderQuery from '../common/Renderers/RenderQuery/RenderQueryContext'
-import MainNavigation from '../navigation/MainNavigation'
 
 /**
  * Root layout wrapping the whole app.
@@ -13,8 +12,6 @@ export default function LayoutRoot() {
         renderError: err => <div>An error has occurred: {err.message}</div>
       }}
     >
-      <MainNavigation />
-      <hr />
       <Outlet />
     </ContextRenderQuery.Provider>
   )

@@ -2,7 +2,7 @@ import UsersControls from './UsersControls'
 import UsersList from './UsersList'
 import UsersList2 from './UsersList2'
 
-export default function UsersManagementRoute() {
+export default function UsersManagementPage() {
   return (
     <div>
       <h1>Users</h1>
