@@ -5,10 +5,12 @@ import { RouterProvider } from '@tanstack/react-router'
 import { some } from 'fp-ts/lib/Option'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { ThemeUIProvider } from 'theme-ui'
 import { createEnvironment } from '../environment/createEnvironment'
 import { StoreRoot } from '../stores/StoreRoot'
 import RouterDevtools from './RouterDevtools'
 import { router } from './router'
+import { theme } from './styles/buildVariants/theme'
 
 /**
  * Create and render the app.
@@ -31,18 +33,20 @@ export function createApp() {
 
   createRoot(rootContainer).render(
     <StrictMode>
-      <ContextStores.Provider value={some(storeRoot)}>
-        <QueryClientProvider client={storeRoot.environment.queryClient}>
-          <RouterProvider router={router} />
+      <ThemeUIProvider theme={theme}>
+        <ContextStores.Provider value={some(storeRoot)}>
+          <QueryClientProvider client={storeRoot.environment.queryClient}>
+            <RouterProvider router={router} />
 
-          <ReactQueryDevtools initialIsOpen={false} />
+            <ReactQueryDevtools initialIsOpen={false} />
 
-          <RouterDevtools
-            production={environment.config.production}
-            appRouter={router}
-          />
-        </QueryClientProvider>
-      </ContextStores.Provider>
+            <RouterDevtools
+              production={environment.config.production}
+              appRouter={router}
+            />
+          </QueryClientProvider>
+        </ContextStores.Provider>
+      </ThemeUIProvider>
     </StrictMode>
   )
 }

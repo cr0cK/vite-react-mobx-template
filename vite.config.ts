@@ -18,6 +18,12 @@ export default defineConfig({
 
   plugins: [TanStackRouterVite(), react(), tailwindcss()],
 
+  // https://theme-ui.com/guides/jsx-pragma#using-vite
+  esbuild: {
+    jsxFactory: 'jsx',
+    jsxInject: `import { jsx } from 'theme-ui'`
+  },
+
   build: {
     minify: true,
     emptyOutDir: true

@@ -4,8 +4,6 @@ import { useStores } from '@/hooks/useStores'
 function UsersList2() {
   const { storeUsersManagement } = useStores()
 
-  console.log('UsersList2')
-
   return (
     <RenderObvEitherObserver
       observableEither={storeUsersManagement.$users}

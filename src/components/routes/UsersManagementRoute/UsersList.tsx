@@ -4,8 +4,6 @@ import { useGetUsersQuery } from '@/queries/useUsersQuery'
 function UsersList() {
   const getUsersQuery = useGetUsersQuery()
 
-  console.log('UsersList')
-
   return (
     <RenderQuery queryResult={getUsersQuery}>
       {users => {

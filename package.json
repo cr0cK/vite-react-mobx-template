@@ -36,6 +36,7 @@
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.9",
     "tailwindcss-animate": "^1.0.7",
+    "theme-ui": "^0.17.2",
     "zod": "^3.24.2"
   },
   "devDependencies": {
