@@ -31,8 +31,6 @@ export function createApp() {
 
   createRoot(rootContainer).render(
     <StrictMode>
-      {/* <CssBaseline enableColorScheme />
-      <ThemeProvider theme={muiTheme}> */}
       <ContextStores.Provider value={some(storeRoot)}>
         <QueryClientProvider client={storeRoot.environment.queryClient}>
           <RouterProvider router={router} />
@@ -45,7 +43,6 @@ export function createApp() {
           />
         </QueryClientProvider>
       </ContextStores.Provider>
-      {/* </ThemeProvider> */}
     </StrictMode>
   )
 }

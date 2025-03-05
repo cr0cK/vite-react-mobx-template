@@ -1,4 +1,4 @@
-export interface ILoaderProps extends React.PropsWithChildren {
+export interface ILoaderDefaultProps extends React.PropsWithChildren {
   isLoading: boolean
   spinner?: React.ReactNode
 }
@@ -6,7 +6,7 @@ export interface ILoaderProps extends React.PropsWithChildren {
 /**
  * Display a spinner or the children according props.
  */
-export default function Loader(props: ILoaderProps) {
+export default function LoaderDefault(props: ILoaderDefaultProps) {
   if (props.isLoading) {
     return props.spinner ?? <div>Loading...</div>
   }

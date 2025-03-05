@@ -1,5 +1,5 @@
 import { Outlet } from '@tanstack/react-router'
-import ContextRenderQuery from '../common/RenderQuery/RenderQueryContext'
+import ContextRenderQuery from '../common/Renderers/RenderQuery/RenderQueryContext'
 import MainNavigation from '../navigation/MainNavigation'
 
 /**

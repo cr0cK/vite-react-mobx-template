@@ -1,6 +1,6 @@
+import { ContainerFlex } from '@/components/common/Containers/ContainerFlex'
+import { Button } from '@/components/ui/button'
 import { useGetUsersQuery } from '@/queries/useUsersQuery'
-import { Box } from '@mui/material'
-import Button from '@mui/material/Button'
 import { useIsFetching, useQueryClient } from '@tanstack/react-query'
 
 export interface IUsersControlsProps {}
@@ -12,11 +12,10 @@ export default function UsersControls(props: IUsersControlsProps) {
   const isFetchingUsers = useIsFetching({ queryKey: ['getUsers'] })
 
   return (
-    <Box sx={{ display: 'flex', gap: theme => theme.spacing(1) }}>
+    <ContainerFlex name="UsersControls">
       <div>
         <Button
-          variant="contained"
-          onClick={() => {
+          onPress={() => {
             queryResult.refetch()
           }}
         >
@@ -26,8 +25,7 @@ export default function UsersControls(props: IUsersControlsProps) {
 
       <div>
         <Button
-          variant="contained"
-          onClick={() => {
+          onPress={() => {
             queryClient.resetQueries({
               queryKey: ['getUsers']
             })
@@ -36,6 +34,6 @@ export default function UsersControls(props: IUsersControlsProps) {
           Remove users
         </Button>
       </div>
-    </Box>
+    </ContainerFlex>
   )
 }

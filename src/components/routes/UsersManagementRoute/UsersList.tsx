@@ -1,5 +1,5 @@
+import RenderQuery from '@/components/common/Renderers/RenderQuery'
 import { useGetUsersQuery } from '@/queries/useUsersQuery'
-import RenderQuery from '../../common/RenderQuery'
 
 function UsersList() {
   const getUsersQuery = useGetUsersQuery()

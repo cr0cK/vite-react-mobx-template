@@ -1,5 +1,5 @@
+import { RenderObvEitherObserver } from '@/components/common/Renderers/RenderObvEither'
 import { useStores } from '@/hooks/useStores'
-import { RenderObvEitherObserver } from '../../common/RenderObvEither'
 
 function UsersList2() {
   const { storeUsersManagement } = useStores()
