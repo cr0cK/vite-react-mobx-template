@@ -6,13 +6,13 @@ import type { Maybe } from '../helpers/types'
  * This class encapsulates optional data, a message, and an error, allowing
  * the UI to display relevant information based on the operation's outcome.
  */
-export class ViewResult<TData> {
+export class AppError<TData = any> {
   private _message: string
   private _data: Maybe<TData>
   private _err: Maybe<Error>
 
   /**
-   * Creates a new ViewResult instance.
+   * Creates a new AppError instance.
    *
    * @param message An optional message describing the context of the result.
    * @param data Optional data associated with the result.

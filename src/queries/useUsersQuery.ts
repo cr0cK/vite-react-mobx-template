@@ -1,9 +1,9 @@
+import { mockedBackend } from '@/mocks/mockedBackend'
 import { queryOptions, useQuery } from '@tanstack/react-query'
 import { UserEntity } from '../entities/UserEntity'
 import { useStores } from '../hooks/useStores'
-import { ViewResult } from '../libs/ViewResult'
+import { AppError } from '../libs/AppError'
 import { ensureArray } from '../libs/helpers/ensureArray'
-import { getUsers } from '../mocks/getUsers'
 import type { StoreUsersManagement } from '../stores/StoreUsersManagement'
 import { getQuery } from './getQueries'
 
@@ -19,11 +19,11 @@ export function useGetUsersQuery() {
 function _getUsersQueryOptions(storeUsersManagement: StoreUsersManagement) {
   return queryOptions({
     queryKey: [getQuery('getUsers')],
-    queryFn: getUsers,
+    queryFn: mockedBackend().getAllUsers,
     throwOnError: err => {
       queueMicrotask(() => {
         storeUsersManagement.$users.updateLeft(box =>
-          box.set(new ViewResult(err.message, { err }))
+          box.set(new AppError(err.message, { err }))
         )
       })
 

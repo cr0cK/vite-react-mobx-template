@@ -1,7 +1,7 @@
 import type { ObservableEither } from '@/libs/mobx/ObservableEither'
 import { observer } from 'mobx-react-lite'
 
-export interface IRenderObvEitherProps<TLeft, TRight> {
+export interface IRenderEitherProps<TLeft, TRight> {
   observableEither: ObservableEither<TLeft, TRight>
   onLeft?: (left: TLeft) => React.ReactNode
   onRight?: (right: TRight) => React.ReactNode
@@ -10,8 +10,8 @@ export interface IRenderObvEitherProps<TLeft, TRight> {
 /**
  * Render left or right values according to the value of the observableEither value passed as props.
  */
-export function RenderObvEither<TError, TSuccess>(
-  props: IRenderObvEitherProps<TError, TSuccess>
+export function RenderEither<TError, TSuccess>(
+  props: IRenderEitherProps<TError, TSuccess>
 ) {
   const [left, right, position] = props.observableEither.unwrapedEither
 
@@ -26,4 +26,4 @@ export function RenderObvEither<TError, TSuccess>(
   return null
 }
 
-export const RenderObvEitherObserver = observer(RenderObvEither)
+export const RenderEitherObserver = observer(RenderEither)

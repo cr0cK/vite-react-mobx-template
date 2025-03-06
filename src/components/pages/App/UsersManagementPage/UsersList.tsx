@@ -1,7 +1,7 @@
-import RenderQuery from '@/components/common/Renderers/RenderQuery'
+import { RenderQuery } from '@/components/common/Renderers/RenderQuery'
 import { useGetUsersQuery } from '@/queries/useUsersQuery'
 
-function UsersList() {
+export function UsersList() {
   const getUsersQuery = useGetUsersQuery()
 
   return (
@@ -22,5 +22,3 @@ function UsersList() {
     </RenderQuery>
   )
 }
-
-export default UsersList

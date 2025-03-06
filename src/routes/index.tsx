@@ -1,9 +1,6 @@
-import { Navigate, createFileRoute } from '@tanstack/react-router'
+import { IndexPage } from '@/components/pages'
+import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
-  component: RouteComponent
+  component: IndexPage
 })
-
-function RouteComponent() {
-  return <Navigate to="/app" />
-}

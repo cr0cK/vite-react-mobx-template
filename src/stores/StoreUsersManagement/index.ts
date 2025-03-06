@@ -1,18 +1,19 @@
 import type { UserEntity } from '@/entities/UserEntity'
-import { ViewResult } from '@/libs/ViewResult'
+import { AppError } from '@/libs/AppError'
 import { ObservableEither } from '@/libs/mobx/ObservableEither'
 import { makeAutoObservable, observable } from 'mobx'
+import type { StoreRoot } from '../StoreRoot'
 
 /**
  * Store in charge of users management.
  */
 export class StoreUsersManagement {
   public $users = ObservableEither.create(() => [
-    observable.box(new ViewResult()),
+    observable.box(new AppError()),
     observable.array<UserEntity>()
   ])
 
-  constructor() {
+  constructor(private _storeRoot: StoreRoot) {
     makeAutoObservable(this)
   }
 

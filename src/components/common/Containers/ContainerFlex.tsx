@@ -9,6 +9,10 @@ export interface ContainerFlexProps extends FlexProps {
 }
 
 interface FlexProps {
+  /**
+   * Flex properties.
+   */
+
   /** Direction of the flex items: row or column */
   direction?: 'row' | 'column'
   /** How to justify the content horizontally */
@@ -36,8 +40,19 @@ interface FlexProps {
   /** Optional gap between items */
   gap?: number | string
   /** Enables debug mode, adding an outline to children */
+
+  /**
+   * Height/Width
+   */
+
+  height?: string | number
+  width?: string | number
+
+  /**
+   * Others
+   */
+
   debug?: boolean
-  /** Child elements */
   children?: React.ReactNode
 }
 
@@ -48,13 +63,15 @@ const Div = styled.div<FlexProps>(props => {
   return buildVariants(props)
     .css({
       display: 'flex',
-      flexDirection: props.direction ? props.direction : undefined,
-      justifyContent: props.justifyContent ? props.justifyContent : undefined,
-      alignItems: props.alignItems ? props.alignItems : undefined,
-      flexWrap: props.wrap ? props.wrap : undefined,
-      alignContent: props.alignContent ? props.alignContent : undefined,
-      flexGrow: props.grow ? props.grow : undefined,
-      gap: props.gap ? props.gap : undefined
+      flexDirection: props.direction,
+      justifyContent: props.justifyContent,
+      alignItems: props.alignItems,
+      flexWrap: props.wrap,
+      alignContent: props.alignContent,
+      flexGrow: props.grow,
+      gap: props.gap,
+      height: props.height,
+      width: props.width
     })
     .if(props.debug ?? false, {
       '> *': {
@@ -80,6 +97,8 @@ export function ContainerFlex(props: ContainerFlexProps) {
       alignContent={props.alignContent}
       grow={props.grow}
       gap={props.gap}
+      height={props.height}
+      width={props.width}
       debug={props.debug}
       {...props.innerProps}
     >

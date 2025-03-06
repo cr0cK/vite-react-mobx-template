@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 
-export default function IndexPage() {
+export function IndexPage() {
   return (
     <div>
       <h1

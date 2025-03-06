@@ -5,7 +5,7 @@ import { useIsFetching, useQueryClient } from '@tanstack/react-query'
 
 export interface IUsersControlsProps {}
 
-export default function UsersControls(props: IUsersControlsProps) {
+export function UsersControls(props: IUsersControlsProps) {
   const queryClient = useQueryClient()
   const queryResult = useGetUsersQuery()
 

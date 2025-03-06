@@ -8,7 +8,7 @@ import { createRoot } from 'react-dom/client'
 import { ThemeUIProvider } from 'theme-ui'
 import { createEnvironment } from '../environment/createEnvironment'
 import { StoreRoot } from '../stores/StoreRoot'
-import RouterDevtools from './RouterDevtools'
+import { RouterDevtools } from './RouterDevtools'
 import { router } from './router'
 import { theme } from './styles/buildVariants/theme'
 

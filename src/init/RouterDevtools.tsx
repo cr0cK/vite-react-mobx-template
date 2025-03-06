@@ -16,7 +16,7 @@ const TanStackRouterDevtools = React.lazy(() =>
   }))
 )
 
-export default function RouterDevtools(props: IRouterDevtoolsProps) {
+export function RouterDevtools(props: IRouterDevtoolsProps) {
   if (props.production) {
     return null
   }

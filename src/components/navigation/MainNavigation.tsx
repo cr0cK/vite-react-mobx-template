@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 
-export default function MainNavigation() {
+export function MainNavigation() {
   return (
     <div>
       <Link to="/app" className="[&.active]:font-bold">

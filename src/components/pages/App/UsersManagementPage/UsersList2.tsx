@@ -1,11 +1,11 @@
-import { RenderObvEitherObserver } from '@/components/common/Renderers/RenderObvEither'
+import { RenderEitherObserver } from '@/components/common/Renderers/RenderEither'
 import { useStores } from '@/hooks/useStores'
 
-function UsersList2() {
+export function UsersList2() {
   const { storeUsersManagement } = useStores()
 
   return (
-    <RenderObvEitherObserver
+    <RenderEitherObserver
       observableEither={storeUsersManagement.$users}
       onLeft={error => {
         return <div>Error: {error.get().message}</div>
@@ -26,5 +26,3 @@ function UsersList2() {
     />
   )
 }
-
-export default UsersList2

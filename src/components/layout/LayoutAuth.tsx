@@ -1,15 +1,22 @@
 import { Outlet } from '@tanstack/react-router'
+import { ContainerFlex } from '../common/Containers/ContainerFlex'
 
 export interface ILayoutAuthProps {}
 
 /**
  * Layout for the auth pages.
  */
-export default function LayoutAuth(props: ILayoutAuthProps) {
+export function LayoutAuth(props: ILayoutAuthProps) {
   return (
-    <div>
-      <h3>Layout: LayoutAuth</h3>
-      <Outlet />
-    </div>
+    <ContainerFlex
+      name="LayoutAuth"
+      direction="column"
+      height="100vh"
+      justifyContent="center"
+    >
+      <ContainerFlex name="LayoutAuthSecondary" justifyContent="center">
+        <Outlet />
+      </ContainerFlex>
+    </ContainerFlex>
   )
 }

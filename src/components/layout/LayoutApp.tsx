@@ -1,10 +1,10 @@
 import { Outlet } from '@tanstack/react-router'
-import MainNavigation from '../navigation/MainNavigation'
+import { MainNavigation } from '../navigation/MainNavigation'
 
 /**
  * Layout for app pages.
  */
-export default function LayoutApp() {
+export function LayoutApp() {
   return (
     <div>
       <MainNavigation />

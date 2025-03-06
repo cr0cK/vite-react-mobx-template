@@ -1,5 +1,6 @@
 import type { Environment } from '@/environment/createEnvironment'
 import { type Option, isSome, none, some } from 'fp-ts/lib/Option'
+import { StoreAuthentication } from '../StoreAuthentication'
 import { StoreUsersManagement } from '../StoreUsersManagement'
 import type { Stores } from '../types'
 
@@ -41,7 +42,8 @@ export class StoreRoot {
   private _instanciateStores() {
     this._stores = some({
       storeRoot: this,
-      storeUsersManagement: new StoreUsersManagement()
+      storeAuthentication: new StoreAuthentication(this),
+      storeUsersManagement: new StoreUsersManagement(this)
     })
   }
 }
