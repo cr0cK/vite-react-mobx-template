@@ -16,6 +16,8 @@ export default defineConfig(({ command, mode }) => {
       }
     },
 
+    base: process.env.VITE_GH_DEPLOYMENT_BASE || '/',
+
     plugins: [TanStackRouterVite(), react(), tailwindcss()],
 
     // https://theme-ui.com/guides/jsx-pragma#using-vite
@@ -30,6 +32,7 @@ export default defineConfig(({ command, mode }) => {
     build: {
       minify: true,
       emptyOutDir: true
+      // outDir: 'dist/vite-react-mobx-template'
     },
 
     clearScreen: false
