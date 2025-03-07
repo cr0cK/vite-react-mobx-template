@@ -16,10 +16,10 @@ import { Route as rootRoute } from './../../routes/__root'
 import { Route as AuthImport } from './../../routes/auth'
 import { Route as AppImport } from './../../routes/app'
 import { Route as IndexImport } from './../../routes/index'
+import { Route as AppHomeImport } from './../../routes/app.home'
 
 // Create Virtual Routes
 
-const AppIndexLazyImport = createFileRoute('/app/')()
 const AuthLoginLazyImport = createFileRoute('/auth/login')()
 const AppUsersManagementLazyImport = createFileRoute('/app/users-management')()
 const AppAboutLazyImport = createFileRoute('/app/about')()
@@ -44,14 +44,6 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AppIndexLazyRoute = AppIndexLazyImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AppRoute,
-} as any).lazy(() =>
-  import('./../../routes/app.index.lazy').then((d) => d.Route),
-)
-
 const AuthLoginLazyRoute = AuthLoginLazyImport.update({
   id: '/login',
   path: '/login',
@@ -75,6 +67,12 @@ const AppAboutLazyRoute = AppAboutLazyImport.update({
 } as any).lazy(() =>
   import('./../../routes/app.about.lazy').then((d) => d.Route),
 )
+
+const AppHomeRoute = AppHomeImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => AppRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -101,6 +99,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthImport
       parentRoute: typeof rootRoute
     }
+    '/app/home': {
+      id: '/app/home'
+      path: '/home'
+      fullPath: '/app/home'
+      preLoaderRoute: typeof AppHomeImport
+      parentRoute: typeof AppImport
+    }
     '/app/about': {
       id: '/app/about'
       path: '/about'
@@ -122,28 +127,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthLoginLazyImport
       parentRoute: typeof AuthImport
     }
-    '/app/': {
-      id: '/app/'
-      path: '/'
-      fullPath: '/app/'
-      preLoaderRoute: typeof AppIndexLazyImport
-      parentRoute: typeof AppImport
-    }
   }
 }
 
 // Create and export the route tree
 
 interface AppRouteChildren {
+  AppHomeRoute: typeof AppHomeRoute
   AppAboutLazyRoute: typeof AppAboutLazyRoute
   AppUsersManagementLazyRoute: typeof AppUsersManagementLazyRoute
-  AppIndexLazyRoute: typeof AppIndexLazyRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppHomeRoute: AppHomeRoute,
   AppAboutLazyRoute: AppAboutLazyRoute,
   AppUsersManagementLazyRoute: AppUsersManagementLazyRoute,
-  AppIndexLazyRoute: AppIndexLazyRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
@@ -162,19 +160,20 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
+  '/app/home': typeof AppHomeRoute
   '/app/about': typeof AppAboutLazyRoute
   '/app/users-management': typeof AppUsersManagementLazyRoute
   '/auth/login': typeof AuthLoginLazyRoute
-  '/app/': typeof AppIndexLazyRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
+  '/app/home': typeof AppHomeRoute
   '/app/about': typeof AppAboutLazyRoute
   '/app/users-management': typeof AppUsersManagementLazyRoute
   '/auth/login': typeof AuthLoginLazyRoute
-  '/app': typeof AppIndexLazyRoute
 }
 
 export interface FileRoutesById {
@@ -182,10 +181,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRouteWithChildren
+  '/app/home': typeof AppHomeRoute
   '/app/about': typeof AppAboutLazyRoute
   '/app/users-management': typeof AppUsersManagementLazyRoute
   '/auth/login': typeof AuthLoginLazyRoute
-  '/app/': typeof AppIndexLazyRoute
 }
 
 export interface FileRouteTypes {
@@ -194,27 +193,28 @@ export interface FileRouteTypes {
     | '/'
     | '/app'
     | '/auth'
+    | '/app/home'
     | '/app/about'
     | '/app/users-management'
     | '/auth/login'
-    | '/app/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/app'
     | '/auth'
+    | '/app/home'
     | '/app/about'
     | '/app/users-management'
     | '/auth/login'
-    | '/app'
   id:
     | '__root__'
     | '/'
     | '/app'
     | '/auth'
+    | '/app/home'
     | '/app/about'
     | '/app/users-management'
     | '/auth/login'
-    | '/app/'
   fileRoutesById: FileRoutesById
 }
 
@@ -251,9 +251,9 @@ export const routeTree = rootRoute
     "/app": {
       "filePath": "app.tsx",
       "children": [
+        "/app/home",
         "/app/about",
-        "/app/users-management",
-        "/app/"
+        "/app/users-management"
       ]
     },
     "/auth": {
@@ -261,6 +261,10 @@ export const routeTree = rootRoute
       "children": [
         "/auth/login"
       ]
+    },
+    "/app/home": {
+      "filePath": "app.home.tsx",
+      "parent": "/app"
     },
     "/app/about": {
       "filePath": "app.about.lazy.tsx",
@@ -273,10 +277,6 @@ export const routeTree = rootRoute
     "/auth/login": {
       "filePath": "auth.login.lazy.tsx",
       "parent": "/auth"
-    },
-    "/app/": {
-      "filePath": "app.index.lazy.tsx",
-      "parent": "/app"
     }
   }
 }

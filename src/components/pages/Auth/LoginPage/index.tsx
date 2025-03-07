@@ -7,9 +7,6 @@ import { Input, TextField } from '@/components/ui/textfield'
 import { useStores } from '@/hooks/useStores'
 import { buildVariants, styled } from '@/init/styles/buildVariants'
 import { useAuthedUserMutation } from '@/queries/useAuthedUserMutation'
-import { useNavigate } from '@tanstack/react-router'
-import { observer } from 'mobx-react-lite'
-import { useEffect } from 'react'
 import { Form } from 'react-aria-components'
 import { handleSubmitOnClick } from './handlers'
 
@@ -26,25 +23,17 @@ const StyledContainerFlex = styled(ContainerFlex)(props => {
     .end()
 })
 
-export function LoginPage_(props: ILoginPageProps) {
+export function LoginPage(props: ILoginPageProps) {
   const { storeAuthentication } = useStores()
 
-  const navigate = useNavigate()
   const authedUserMutation = useAuthedUserMutation(storeAuthentication)
-
-  /** Redirect to the app if authenticated */
-  useEffect(() => {
-    if (storeAuthentication.isAuthenticated) {
-      navigate({ to: '/app' })
-    }
-  }, [storeAuthentication.isAuthenticated])
 
   return (
     <StyledContainerFlex direction="column" name="LoginPage">
       <H1>Login</H1>
       <Paragraph>Enter your email below to login to your account.</Paragraph>
 
-      <Form onSubmit={handleSubmitOnClick(authedUserMutation, navigate)}>
+      <Form onSubmit={handleSubmitOnClick(authedUserMutation)}>
         <ContainerFlex name="Form" direction="column" gap={20}>
           <TextField name="email" type="email" isRequired>
             <Label>Email</Label>
@@ -66,5 +55,3 @@ export function LoginPage_(props: ILoginPageProps) {
     </StyledContainerFlex>
   )
 }
-
-export const LoginPage = observer(LoginPage_)

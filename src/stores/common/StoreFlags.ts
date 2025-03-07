@@ -20,7 +20,7 @@ export default class StoreFlags {
   @observable
   private $flags = LoadingFlags.isReady
 
-  constructor(private _storeRoot: StoreRoot) {
+  constructor(public storeRoot: StoreRoot) {
     makeObservable(this)
   }
 

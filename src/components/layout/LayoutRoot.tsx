@@ -1,11 +1,15 @@
+import { useAuthRedirections } from '@/hooks/useAuthRedirections'
 import { Outlet } from '@tanstack/react-router'
+import { observer } from 'mobx-react-lite'
 import ContextRenderQuery from '../common/Renderers/RenderQuery/RenderQueryContext'
 import { Toaster } from '../ui/sonner'
 
 /**
  * Root layout wrapping the whole app.
  */
-export function LayoutRoot() {
+function LayoutRoot_() {
+  useAuthRedirections()
+
   return (
     <ContextRenderQuery.Provider
       value={{
@@ -18,3 +22,5 @@ export function LayoutRoot() {
     </ContextRenderQuery.Provider>
   )
 }
+
+export const LayoutRoot = observer(LayoutRoot_)

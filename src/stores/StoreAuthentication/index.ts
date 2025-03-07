@@ -18,8 +18,8 @@ export class StoreAuthentication {
 
   public storeFlags: StoreFlags
 
-  constructor(private _storeRoot: StoreRoot) {
-    this.storeFlags = new StoreFlags(this._storeRoot)
+  constructor(public storeRoot: StoreRoot) {
+    this.storeFlags = new StoreFlags(this.storeRoot)
 
     this.initAuthUserFromLocalStorage()
 
@@ -60,6 +60,13 @@ export class StoreAuthentication {
     }
 
     return this
+  }
+
+  /**
+   * Remove authed user.
+   */
+  logout() {
+    this.setAuthUser(null)
   }
 
   /** Computed */

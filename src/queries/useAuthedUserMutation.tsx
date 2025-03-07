@@ -3,6 +3,9 @@ import { mockedBackend } from '@/mocks/mockedBackend'
 import type { StoreAuthentication } from '@/stores/StoreAuthentication'
 import { useMutation } from '@tanstack/react-query'
 
+/**
+ * Use mutation to authenticate a user.
+ */
 export function useAuthedUserMutation(
   storeAuthentication: StoreAuthentication
 ) {

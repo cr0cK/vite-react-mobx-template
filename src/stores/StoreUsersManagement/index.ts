@@ -13,7 +13,7 @@ export class StoreUsersManagement {
     observable.array<UserEntity>()
   ])
 
-  constructor(private _storeRoot: StoreRoot) {
+  constructor(public storeRoot: StoreRoot) {
     makeAutoObservable(this)
   }
 
