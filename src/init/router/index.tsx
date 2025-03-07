@@ -1,4 +1,4 @@
-import { createRouter } from '@tanstack/react-router'
+import { createHashHistory, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 
 export type AppRouter = typeof router
@@ -10,5 +10,11 @@ declare module '@tanstack/react-router' {
   }
 }
 
+const hashHistory = createHashHistory()
+
 // Create a new router instance
-export const router = createRouter({ routeTree })
+export const router = createRouter({
+  routeTree,
+  basepath: import.meta.env.VITE_GH_DEPLOYMENT_BASE || '/',
+  history: import.meta.env.VITE_GH_DEPLOYMENT_BASE ? hashHistory : undefined
+})
