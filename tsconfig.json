@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    /* JSX */
+    "jsx": "react-jsx",
+    "jsxImportSource": "theme-ui",
+
     /* Output Settings */
     "target": "ES2022",
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
@@ -12,7 +16,6 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx",
 
     /* Decorators */
     "experimentalDecorators": true,
@@ -27,7 +30,7 @@
     /* Paths */
     "baseUrl": ".",
     "paths": {
-      "@/src/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src", "vite.config.ts"]

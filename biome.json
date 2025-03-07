@@ -1,7 +1,11 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.0/schema.json",
   "files": {
-    "ignore": ["tsconfig.*", "src/init/router/routeTree.gen.ts"]
+    "ignore": [
+      "tsconfig.*",
+      "src/init/router/routeTree.gen.ts",
+      "src/components/ui/*"
+    ]
   },
   "formatter": {
     "indentStyle": "space"

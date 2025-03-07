@@ -1,11 +1,15 @@
+import { useAuthRedirections } from '@/hooks/useAuthRedirections'
 import { Outlet } from '@tanstack/react-router'
-import ContextRenderQuery from '../common/RenderQuery/RenderQueryContext'
-import MainNavigation from '../navigation/MainNavigation'
+import { observer } from 'mobx-react-lite'
+import ContextRenderQuery from '../common/Renderers/RenderQuery/RenderQueryContext'
+import { Toaster } from '../ui/sonner'
 
 /**
  * Root layout wrapping the whole app.
  */
-export default function LayoutRoot() {
+function LayoutRoot_() {
+  useAuthRedirections()
+
   return (
     <ContextRenderQuery.Provider
       value={{
@@ -13,9 +17,10 @@ export default function LayoutRoot() {
         renderError: err => <div>An error has occurred: {err.message}</div>
       }}
     >
-      <MainNavigation />
-      <hr />
+      <Toaster />
       <Outlet />
     </ContextRenderQuery.Provider>
   )
 }
+
+export const LayoutRoot = observer(LayoutRoot_)

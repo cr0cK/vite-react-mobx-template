@@ -1,3 +1,4 @@
+import type { StoreAuthentication } from './StoreAuthentication'
 import type { StoreRoot } from './StoreRoot'
 import type { StoreUsersManagement } from './StoreUsersManagement'
 
@@ -6,5 +7,6 @@ import type { StoreUsersManagement } from './StoreUsersManagement'
  */
 export type Stores = {
   storeRoot: StoreRoot
+  storeAuthentication: StoreAuthentication
   storeUsersManagement: StoreUsersManagement
 }
